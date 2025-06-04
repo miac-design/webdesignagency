@@ -580,6 +580,37 @@
                 max-width: 400px;
             }
         }
+
+        .about-section {
+            background: var(--accent-color);
+            padding: 5rem 2rem;
+        }
+        .about-content {
+            display: flex;
+            flex-direction: row;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .about-block {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .about-block h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 900px) {
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -595,7 +626,7 @@
             <li><a href="#why-website" class="nav-link">Why You Need a Website</a></li>
             <li><a href="#pricing" class="nav-link">Pricing</a></li>
             <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-            <li><a href="#team" class="nav-link">Meet the Team</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
             <li><a href="#contact" class="nav-link">Contact Us</a></li>
         </ul>
     </nav>
@@ -611,6 +642,23 @@
                 modern design principles with user-focused functionality to deliver exceptional results.
             </p>
             <a href="#contact" class="cta-button">Get a Free 15-min Consult</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-block">
+                    <h3>Who We Are</h3>
+                    <p>We're a small, passionate team of designers and developers who love helping local businesses shine online. With a background in design, research, and user experience, we bring thoughtful, conversion-focused websites to life — without the fluff or tech talk.</p>
+                    <p>We believe every small business deserves a site that's easy to use, easy to update, and easy on the eyes. That's why we offer friendly, professional web makeovers that help businesses grow.</p>
+                </div>
+                <div class="about-block">
+                    <h3>Why We Do This</h3>
+                    <p>Too many great local businesses struggle with websites that are outdated, slow, or hard to use. We're here to fix that — one clean, modern site at a time.</p>
+                </div>
+            </div>
         </div>
     </section>
 
