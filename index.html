@@ -426,48 +426,107 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Pricing Section */
-        .pricing {
-            background-color: var(--accent-color);
+        /* Pricing Section Styles */
+        .pricing-section {
+            background: var(--accent-color);
+            padding: 5rem 2rem;
         }
-
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 0 auto 2rem auto;
         }
-
         .pricing-card {
-            background: white;
-            padding: 2rem;
+            background: #fff;
             border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
         }
-
-        .pricing-card h3 {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
+        .pricing-card:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+        .plan-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 1rem;
         }
-
-        .pricing-card p {
-            margin-bottom: 1rem;
-        }
-
-        .pricing-card .price {
-            font-size: 2rem;
-            color: var(--secondary-color);
+        .plan-name {
+            font-size: 1.4rem;
             font-weight: 700;
-            margin: 1rem 0;
+            color: var(--secondary-color);
         }
-
+        .discount-badge {
+            background: #ffe6b3;
+            color: #b97a2b;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 0.2em 0.8em;
+            margin-left: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        .plan-desc {
+            color: var(--text-color);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .original-price {
+            color: #b0a18b;
+            text-decoration: line-through;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .discounted-price {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .get-started-btn {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 0.8em 2em;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .get-started-btn:hover {
+            background: var(--secondary-color);
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
         .pricing-note {
             text-align: center;
             margin-top: 2rem;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
             font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .pricing-card {
+                padding: 2rem 1rem 1.5rem 1rem;
+            }
         }
 
         /* How It Works Section */
@@ -725,27 +784,51 @@
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="pricing-section">
         <div class="container">
             <h2 class="section-title">Simple Pricing</h2>
             <div class="pricing-grid">
+                <!-- Starter -->
                 <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <p>Basic website refresh</p>
-                    <div class="price">$N</div>
+                    <div class="plan-header">
+                        <span class="plan-name">Starter</span>
+                        <span class="discount-badge">15% OFF</span>
+                    </div>
+                    <p class="plan-desc">Basic website refresh (1–2 pages)</p>
+                    <div class="price-row">
+                        <span class="original-price">$500</span>
+                        <span class="discounted-price">$425</span>
+                    </div>
+                    <button class="get-started-btn">Get Started</button>
                 </div>
+                <!-- Standard -->
                 <div class="pricing-card">
-                    <h3>Standard</h3>
-                    <p>New website with 3-5 pages</p>
-                    <div class="price">$N</div>
+                    <div class="plan-header">
+                        <span class="plan-name">Standard</span>
+                        <span class="discount-badge">15% OFF</span>
+                    </div>
+                    <p class="plan-desc">New website (3–5 pages)</p>
+                    <div class="price-row">
+                        <span class="original-price">$1200</span>
+                        <span class="discounted-price">$1020</span>
+                    </div>
+                    <button class="get-started-btn">Get Started</button>
                 </div>
+                <!-- Pro -->
                 <div class="pricing-card">
-                    <h3>Pro</h3>
-                    <p>Website + branding + SEO setup</p>
-                    <div class="price">$N</div>
+                    <div class="plan-header">
+                        <span class="plan-name">Pro</span>
+                        <span class="discount-badge">15% OFF</span>
+                    </div>
+                    <p class="plan-desc">Website + branding + SEO setup</p>
+                    <div class="price-row">
+                        <span class="original-price">$2500</span>
+                        <span class="discounted-price">$2125</span>
+                    </div>
+                    <button class="get-started-btn">Get Started</button>
                 </div>
             </div>
-            <p class="pricing-note">Custom plans available — just ask!</p>
+            <p class="pricing-note">💡 Custom plans available — just ask!</p>
         </div>
     </section>
 
