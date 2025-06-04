@@ -323,42 +323,52 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Before & After Section */
-        .before-after {
+        /* Portfolio Section Styles */
+        .portfolio-section {
             background-color: var(--accent-color);
+            padding: 5rem 2rem;
         }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .comparison-text {
+        .portfolio-intro {
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            text-align: center;
             font-size: 1.2rem;
+            color: var(--text-color);
         }
-
-        .comparison-item {
-            margin-bottom: 2rem;
-        }
-
-        .comparison-item h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .comparison-images {
+        .portfolio-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-
-        .comparison-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+        .portfolio-card {
+            background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+        .portfolio-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-img {
+                height: 180px;
+            }
         }
 
         /* Why You Need a Website Section */
@@ -562,7 +572,6 @@
             }
 
             .what-we-do-content,
-            .comparison-grid,
             .why-content,
             .steps-content {
                 grid-template-columns: 1fr;
@@ -622,7 +631,7 @@
         <ul class="nav-links">
             <li><a href="#home" class="nav-link">Home</a></li>
             <li><a href="#what-we-do" class="nav-link">What We Do</a></li>
-            <li><a href="#before-after" class="nav-link">Before & After</a></li>
+            <li><a href="#portfolio" class="nav-link">Some of Our Work</a></li>
             <li><a href="#why-website" class="nav-link">Why You Need a Website</a></li>
             <li><a href="#pricing" class="nav-link">Pricing</a></li>
             <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
@@ -681,23 +690,24 @@
         </div>
     </section>
 
-    <section id="before-after" class="before-after">
+    <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <h2 class="section-title">Before & After</h2>
-            <div class="comparison-grid">
-                <div class="comparison-text">
-                    <div class="comparison-item">
-                        <h3>Old Website</h3>
-                        <p>Confusing, slow, not mobile-friendly</p>
-                    </div>
-                    <div class="comparison-item">
-                        <h3>New Website</h3>
-                        <p>Clean, modern, fast, easy to use</p>
-                    </div>
+            <h2 class="section-title">Some of Our Work</h2>
+            <p class="portfolio-intro">
+                Here's a quick look at a few websites we've recently helped redesign or refresh. Each one was built with performance, usability, and mobile-friendliness in mind.
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Example Website 1" class="portfolio-img">
                 </div>
-                <div class="comparison-images">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Old Website" class="comparison-image">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="New Website" class="comparison-image">
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Example Website 2" class="portfolio-img">
+                </div>
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Example Website 3" class="portfolio-img">
+                </div>
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Example Website 4" class="portfolio-img">
                 </div>
             </div>
         </div>
