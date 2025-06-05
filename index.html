@@ -954,25 +954,34 @@
 
         /* Contact Illustration */
         .contact-illustration {
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            width: 280px;
+            height: 280px;
+            padding: 0;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             margin: 2.2rem auto 0 auto;
-            background: #f8f5ec;
-            border-radius: 18px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-            width: 160px;
-            height: 160px;
+            border-radius: 24px;
             transition: transform 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            animation: fadeInContactIllus 1.2s 0.2s forwards;
         }
-        .contact-illustration:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+        .contact-illustration img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
         }
-        @keyframes fadeInContactIllus {
-            to { opacity: 1; }
+        @media (max-width: 900px) {
+            .contact-illustration {
+                width: 180px;
+                height: 180px;
+                border-radius: 16px;
+            }
+            .contact-illustration img {
+                border-radius: 12px;
+            }
         }
     </style>
 </head>
@@ -1214,8 +1223,8 @@
                         <i class="fas fa-envelope"></i>
                         mia.cheraghian@gmail.com
                     </a>
-                    <div class="contact-illustration" style="background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 170px; height: 170px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Person at laptop" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block;" loading="lazy" />
+                    <div class="contact-illustration">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Person at laptop" loading="lazy" />
                     </div>
                 </div>
                 <form class="contact-form" autocomplete="off">
