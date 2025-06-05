@@ -689,6 +689,118 @@
                 gap: 2rem;
             }
         }
+
+        /* Hero Animated Background */
+        .hero-animated-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-gradient {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            left: -10%;
+            top: -10%;
+            background: linear-gradient(120deg, #D2B48C 0%, #F5F5DC 50%, #8B4513 100%);
+            opacity: 0.7;
+            filter: blur(40px);
+            animation: gradientMove 8s ease-in-out infinite alternate;
+        }
+        @keyframes gradientMove {
+            0% { transform: scale(1) translate(0,0); }
+            100% { transform: scale(1.1) translate(30px, -20px); }
+        }
+        .hero-blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at 60% 40%, #8B4513 0%, #D2B48C 80%, transparent 100%);
+            opacity: 0.18;
+            filter: blur(60px);
+            left: 60%;
+            top: 10%;
+            animation: blobMove 10s ease-in-out infinite alternate;
+        }
+        @keyframes blobMove {
+            0% { transform: scale(1) translate(0,0); }
+            100% { transform: scale(1.1) translate(-40px, 30px); }
+        }
+
+        /* Hero Content Animations */
+        .hero-content-animate {
+            position: relative;
+            z-index: 1;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+        .fade-in.delay-1 { animation-delay: 0.2s; }
+        .fade-in.delay-2 { animation-delay: 0.5s; }
+        .fade-in.delay-3 { animation-delay: 0.8s; }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Feature Cards Row */
+        .features-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: -2.5rem auto 0 auto;
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            padding: 1.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 160px;
+            flex: 1 1 0;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.7rem;
+        }
+        .feature-label {
+            font-size: 1.08rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .features-row {
+                flex-direction: column;
+                gap: 1.2rem;
+                margin-top: 1.5rem;
+            }
+            .feature-card {
+                min-width: 0;
+            }
+        }
+
+        /* Decorative Wave Divider */
+        .wave-divider {
+            width: 100%;
+            height: 60px;
+            display: block;
+            margin-bottom: -1px;
+            z-index: 1;
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -710,18 +822,45 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="logo">NovaNest</h1>
-            <p class="main-slogan">Helping Local Businesses Grow Online</p>
+        <div class="hero-animated-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-blob"></div>
+        </div>
+        <div class="hero-content hero-content-animate">
+            <h1 class="logo fade-in delay-1">NovaNest</h1>
+            <p class="main-slogan fade-in delay-2">Helping Local Businesses Grow Online</p>
             <p class="slogan">We design. You grow.</p>
-            <p class="intro">
+            <p class="intro fade-in delay-3">
                 We're a passionate team of web designers and developers dedicated to creating beautiful, 
                 functional websites that help businesses thrive in the digital world. Our approach combines 
                 modern design principles with user-focused functionality to deliver exceptional results.
             </p>
-            <a href="#contact" class="cta-button">Get a Free 15-min Consult</a>
+            <a href="#contact" class="cta-button fade-in delay-3">Get a Free 15-min Consult</a>
         </div>
     </section>
+
+    <!-- Decorative Wave Divider -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="60">
+            <path d="M0 30 Q 360 60 720 30 T 1440 30 V60 H0V30Z" fill="#F5F5DC" fill-opacity="0.95"/>
+        </svg>
+    </div>
+
+    <!-- Features Row -->
+    <div class="features-row">
+        <div class="feature-card">
+            <span class="feature-icon"><i class="fas fa-mobile-alt"></i></span>
+            <span class="feature-label">Mobile-Ready Design</span>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon"><i class="fas fa-bolt"></i></span>
+            <span class="feature-label">Fast & SEO-Friendly</span>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon"><i class="fas fa-edit"></i></span>
+            <span class="feature-label">Easy to Update</span>
+        </div>
+    </div>
 
     <section id="about" class="about-section">
         <div class="container">
