@@ -866,6 +866,84 @@
                 font-size: 1rem;
             }
         }
+
+        /* Contact Section Enhancements */
+        .contact-flex {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        .contact-info {
+            flex: 1 1 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+        }
+        .contact-form {
+            flex: 1 1 320px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            padding: 2.2rem 2rem 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            min-width: 280px;
+            max-width: 400px;
+        }
+        .contact-form label {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        .contact-form input {
+            padding: 0.7em 1em;
+            border-radius: 10px;
+            border: 1px solid #e0d6c3;
+            background: #f8f5ec;
+            font-size: 1rem;
+            color: var(--text-color);
+            outline: none;
+            transition: border 0.2s;
+        }
+        .contact-form input:focus {
+            border: 1.5px solid var(--primary-color);
+        }
+        .contact-form .submit-btn {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 0.8em 2em;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            margin-top: 0.5rem;
+        }
+        .contact-form .submit-btn:hover {
+            background: var(--secondary-color);
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 900px) {
+            .contact-flex {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: stretch;
+            }
+            .contact-info, .contact-form {
+                max-width: 100%;
+                min-width: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1099,12 +1177,25 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
-                <p>We'd love to chat and show you how simple getting a great website can be!</p>
-                <a href="mailto:mia.cheraghian@gmail.com" class="contact-email">
-                    <i class="fas fa-envelope"></i>
-                    mia.cheraghian@gmail.com
-                </a>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <p>We'd love to chat and show you how simple getting a great website can be!</p>
+                    <a href="mailto:mia.cheraghian@gmail.com" class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        mia.cheraghian@gmail.com
+                    </a>
+                </div>
+                <form class="contact-form" autocomplete="off">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name (optional)">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name (optional)">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email (optional)">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number (optional)">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
             </div>
         </div>
     </section>
