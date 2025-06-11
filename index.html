@@ -983,6 +983,53 @@
                 border-radius: 12px;
             }
         }
+
+        /* Hero Video Background */
+        .hero-video-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .hero-video-bg video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center;
+            min-width: 100%;
+            min-height: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 0;
+            opacity: 1;
+            background: #2a170a;
+            pointer-events: none;
+        }
+        .hero-video-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(40,20,10,0.68);
+            z-index: 1;
+        }
+        @media (max-width: 700px) {
+            .hero-video-bg video {
+                display: none;
+            }
+            .hero-video-bg .hero-video-fallback {
+                display: block;
+            }
+        }
+        .hero-video-bg .hero-video-fallback {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
@@ -1004,10 +1051,13 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-animated-bg">
-            <div class="hero-gradient"></div>
-            <div class="hero-blob"></div>
-            <div class="hero-vignette"></div>
+        <div class="hero-video-bg">
+            <video playsinline autoplay muted loop preload="auto" poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" aria-hidden="true">
+                <source src="https://videos.pexels.com/video-files/3184292/3184292-hd_1920_1080_25fps.mp4" type="video/mp4">
+                <!-- fallback image for unsupported browsers -->
+            </video>
+            <img class="hero-video-fallback" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Small business owner working" />
+            <div class="hero-video-overlay"></div>
         </div>
         <div class="hero-content hero-content-animate">
             <h1 class="logo fade-in delay-1">NovaNest</h1>
