@@ -1325,6 +1325,78 @@
             width: 100%;
             box-sizing: border-box;
         }
+
+        /* --- Contact Form Grid Redesign --- */
+        .redesigned-contact-form-grid {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 480px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 16px;
+            width: 100%;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9em 1.1em;
+            border-radius: 16px;
+            border: 1.5px solid #e0d6c3;
+            background: #f8f5ec;
+            font-size: 1rem;
+            color: #333;
+            outline: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+            font-family: inherit;
+            min-height: 48px;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-size: 1.08rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border: 1.5px solid var(--primary-color);
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .form-group label {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        .form-message {
+            margin-bottom: 0;
+        }
+        .form-submit {
+            margin-top: 0;
+        }
+        @media (max-width: 700px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .redesigned-contact-form-grid {
+                max-width: 100%;
+                padding: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1566,10 +1638,10 @@
                 <form
                     action="https://formspree.io/f/xjkrwwgy"
                     method="POST"
-                    class="contact-modern-form"
+                    class="contact-modern-form redesigned-contact-form-grid"
                     autocomplete="off"
                 >
-                    <div class="form-row">
+                    <div class="form-grid">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
                             <input type="text" id="firstName" name="firstName" placeholder="First Name">
@@ -1578,8 +1650,6 @@
                             <label for="lastName">Last Name</label>
                             <input type="text" id="lastName" name="lastName" placeholder="Last Name">
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email <span class="required">*</span></label>
                             <input type="email" id="email" name="email" required placeholder="Email">
@@ -1588,12 +1658,14 @@
                             <label for="phone">Phone</label>
                             <input type="tel" id="phone" name="phone" placeholder="Phone (optional)">
                         </div>
+                        <div class="form-group form-message" style="grid-column: 1 / -1;">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project or question"></textarea>
+                        </div>
+                        <div class="form-group form-submit" style="grid-column: 1 / -1; text-align:center; margin-bottom:0;">
+                            <button type="submit" class="modern-submit-btn">Send Message</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project or question"></textarea>
-                    </div>
-                    <button type="submit" class="modern-submit-btn">Send Message</button>
                     <div class="trust-line">
                         <small><i class="fas fa-clock"></i> We reply to most inquiries within 24 hours.</small>
                     </div>
