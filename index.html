@@ -1127,27 +1127,18 @@
             margin-top: 2.5rem;
         }
         .contact-modern-form {
-            flex: 1 1 380px;
-            min-width: 320px;
-            max-width: 480px;
-            background: #fff;
-            border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.09);
-            padding: 2.7rem 2.2rem 2.2rem 2.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            justify-content: center;
+            box-sizing: border-box;
         }
         .contact-modern-form .form-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: minmax(0,1fr) minmax(0,1fr);
             gap: 1.2rem;
+            padding: 0;
+            margin: 0;
         }
         .contact-modern-form .form-group {
-            flex: 1 1 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
+            margin: 0;
+            min-width: 0;
         }
         .contact-modern-form label {
             font-size: 1rem;
@@ -1286,7 +1277,7 @@
                 margin: 1.2rem auto 0 auto;
             }
             .contact-modern-form .form-row {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 0.8rem;
             }
         }
