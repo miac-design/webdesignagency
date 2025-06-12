@@ -892,7 +892,6 @@
             margin-bottom: 2rem;
         }
         .contact-form {
-            flex: 1 1 320px;
             background: #fff;
             border-radius: 18px;
             box-shadow: 0 4px 18px rgba(0,0,0,0.07);
@@ -901,30 +900,47 @@
             flex-direction: column;
             gap: 1.1rem;
             min-width: 280px;
-            max-width: 400px;
+            max-width: 420px;
         }
-        .contact-form label {
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        .form-group {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
             font-size: 1rem;
-            color: var(--secondary-color);
+            color: #8B4513;
             margin-bottom: 0.3rem;
             font-weight: 500;
         }
-        .contact-form input {
+        .required {
+            color: #b97a2b;
+            font-size: 1.1em;
+        }
+        input, select, textarea {
             padding: 0.7em 1em;
             border-radius: 10px;
             border: 1px solid #e0d6c3;
             background: #f8f5ec;
             font-size: 1rem;
-            color: var(--text-color);
+            color: #333;
             outline: none;
             transition: border 0.2s;
+            margin-bottom: 0.2rem;
         }
-        .contact-form input:focus {
-            border: 1.5px solid var(--primary-color);
+        input:focus, select:focus, textarea:focus {
+            border: 1.5px solid #D2B48C;
         }
-        .contact-form .submit-btn {
-            background: var(--primary-color);
-            color: var(--secondary-color);
+        textarea {
+            resize: vertical;
+        }
+        .submit-btn {
+            background: #D2B48C;
+            color: #8B4513;
             border: none;
             border-radius: 30px;
             padding: 0.8em 2em;
@@ -935,20 +951,26 @@
             transition: background 0.2s, color 0.2s, transform 0.2s;
             margin-top: 0.5rem;
         }
-        .contact-form .submit-btn:hover {
-            background: var(--secondary-color);
+        .submit-btn:hover, .submit-btn:focus {
+            background: #8B4513;
             color: #fff;
             transform: translateY(-2px) scale(1.03);
         }
-        @media (max-width: 900px) {
-            .contact-flex {
+        .privacy-note {
+            margin-top: 1.2em;
+            text-align: center;
+            color: #b0a18b;
+            font-size: 0.98em;
+        }
+        @media (max-width: 700px) {
+            .form-row {
                 flex-direction: column;
-                gap: 2rem;
-                align-items: stretch;
+                gap: 0.5rem;
             }
-            .contact-info, .contact-form {
-                max-width: 100%;
+            .contact-form {
+                padding: 1.2rem 0.7rem 1rem 0.7rem;
                 min-width: 0;
+                max-width: 100%;
             }
         }
 
@@ -1277,16 +1299,50 @@
                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Person at laptop" loading="lazy" />
                     </div>
                 </div>
-                <form class="contact-form" autocomplete="off">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name (optional)">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name (optional)">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email (optional)">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Phone Number (optional)">
-                    <button type="submit" class="submit-btn">Submit</button>
+                <form
+                    action="https://formspree.io/f/xjkrwwgy"
+                    method="POST"
+                    class="contact-form"
+                    autocomplete="off"
+                >
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiryType">Inquiry Type</label>
+                        <select id="inquiryType" name="inquiryType">
+                            <option value="">Select an option</option>
+                            <option value="New Website">New Website</option>
+                            <option value="Redesign">Redesign</option>
+                            <option value="Ongoing Help">Ongoing Help</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or question"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="privacy-note">
+                        <small>We respect your privacy. Your information will never be shared.</small>
+                    </div>
                 </form>
             </div>
         </div>
