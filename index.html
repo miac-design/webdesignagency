@@ -1313,6 +1313,18 @@
                 margin-right: 0;
             }
         }
+
+        /* Prevent form fields from overflowing the card */
+        .contact-modern-form .form-row .form-group {
+            max-width: 240px;
+            min-width: 0;
+            flex: 1 1 0;
+        }
+        .contact-modern-form input,
+        .contact-modern-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
