@@ -1291,11 +1291,26 @@
             }
         }
         .contact-modern-form .form-row .form-group:last-child {
-            margin-left: 0.7rem;
+            margin-left: 0;
+        }
+        .contact-modern-form .form-row {
+            padding: 0 0.2rem;
+        }
+        .contact-modern-form .form-row .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .contact-modern-form .form-row .form-group + .form-group {
+            margin-left: 1.1rem;
         }
         @media (max-width: 900px) {
-            .contact-modern-form .form-row .form-group:last-child {
+            .contact-modern-form .form-row {
+                padding: 0;
+            }
+            .contact-modern-form .form-row .form-group,
+            .contact-modern-form .form-row .form-group + .form-group {
                 margin-left: 0;
+                margin-right: 0;
             }
         }
     </style>
